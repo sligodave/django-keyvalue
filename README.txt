@@ -42,7 +42,7 @@ Add "keyvalue" to your INSTALLED_APPS and syncdb and you are ready to go.
     >>> ym = YourModel.objects.get(id=5)
     >>> 
     >>> KeyValue.objects.set_keyvalue(owner=ym, name='name', value='Bob')
-    >>> KeyValue.objects.set_keyvalue(ym, 'email', 'bob@bobsplace.com')
+    >>> KeyValue.objects.set_keyvalue(ym, 'email', 'bob@example.com')
     >>> KeyValue.objects.set_keyvalue(ym, 'user', u)
     >>> KeyValue.objects.set_keyvalue(owner=ym, name='username', value=u, field='username')
     >>> 
