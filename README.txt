@@ -28,6 +28,12 @@ NOTE: This application is still being worked on.
 Speed wise you are always better explicitly specifying your fields and relationships on your models using django fields.
 I can see a use for this though where you want your models to organically grown and the relationships between them.
 
+LIMITATIONS:
+1. This app uses djangos generic replationships, as such I made a decision to stick with Models who's ID's are positive integers.
+This means that you can only use Models with positive integers as their IDs for the Owner of the KeyValue and also the Value of the KeyValue instance.
+2. If the value to a KeyValue instance points to a field of a model, rather than a model itself.
+The length of the field name must currently be less than 100 characters. This may be revised at a later date.
+
 Also, there are better docs to follow.
 See TODO.txt for a general direction.
 
