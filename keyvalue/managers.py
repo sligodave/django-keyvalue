@@ -42,7 +42,8 @@ class KeyValueManager(models.Manager):
 
     def get_keyvalues(self, owner, names=None):
         """
-        Delete a keyvalue instance for a given owner
+        Get keyvalue instances for a given owner
+        and filter with an optional names
         """
         owner_type = ContentType.objects.get_for_model(owner)
         filter_args = {'owner_content_type': owner_type,
