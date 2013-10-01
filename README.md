@@ -21,14 +21,16 @@ Each KeyValue has three items:
    Note: When a bool, integer or string is supplied as a value
    we store it in supplied keyvalue value django model.
    But to the user it appears as it's original format.
-   You can set what type of container we just for storing the string values.
+   You can set what type of container is used for storing the string values.
    Supplied containers are: ValueText, ValueChar100, ValueChar50
 
 NOTE: This application is still being worked on.
 Speed wise you are always better explicitly specifying your fields and relationships on your models using django fields.
 I can see a use for this though where you want your models to organically grown and the relationships between them.
 
-LIMITATIONS:
+
+## LIMITATIONS:
+
 1. This app uses djangos generic replationships, as such I made a decision to stick with Models who's ID's are positive integers.
 This means that you can only use Models with positive integers as their IDs for the Owner of the KeyValue and also the Value of the KeyValue instance.
 2. If the value to a KeyValue instance points to a field of a model, rather than a model itself.
@@ -37,8 +39,19 @@ The length of the field name must currently be less than 100 characters. This ma
 Also, there are better docs to follow.
 See TODO.txt for a general direction.
 
-INSTALL:
-Add "keyvalue" to your INSTALLED_APPS and syncdb and you are ready to go.
+
+## INSTALL:
+
+Clone this repository into your Sublime Text *Packages* directory.
+
+    git clone https://github.com/sligodave/django-keyvalue.git django-keyvalue
+    
+    python setup.py
+    
+    Add "keyvalue" to your INSTALLED_APPS and syncdb and you are ready to go.
+
+
+## EXAMPLE:
 
     >>> from django.contrib.auth.models import User
     >>> from your_app.models import YourModel
@@ -56,3 +69,16 @@ Add "keyvalue" to your INSTALLED_APPS and syncdb and you are ready to go.
     u'bob'
     >>> KeyValue.objects.get_keyvalue(ym, 'user').value
     <User: bob>
+
+For more examples see the unit tests in the keyvalue directory.
+
+
+## Issues and suggestions:
+
+Fire on any issues or suggestions you have.
+
+
+## Copyright and license
+Copyright 2013 David Higgins
+
+[MIT License](LICENSE)
