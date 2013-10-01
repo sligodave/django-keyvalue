@@ -44,7 +44,7 @@ See TODO.txt for a general direction.
 
 ## INSTALL:
 
-Clone this repository into your Sublime Text *Packages* directory.
+Clone this repository to your local machine:
 
     git clone https://github.com/sligodave/django-keyvalue.git django-keyvalue
     
