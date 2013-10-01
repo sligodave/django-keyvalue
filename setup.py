@@ -17,7 +17,7 @@ setup(
     author_email='sligodave@gmail.com',
     url='http://github.com/sligodave/django-keyvalue/tree/master',
     packages=['keyvalue'],
-    long_description=read('README.txt'),
+    long_description=read('README.md'),
     zip_safe=False,
     classifiers=[
         'Environment :: Web Environment',
