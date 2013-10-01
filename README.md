@@ -9,20 +9,22 @@ The KeyValue model holds a reference to the Owner (an instance of a django model
 which is also an instance of a django model but you have the ability to specify a field on the model as the value also.
 
 Each KeyValue has three items:
-1. An owner which must be an instance of a django model
-2. A key, which must be an instance of keyvalue.models.Key and stores the name of the key part of the key value.
-3. A value, which must be one of:
-    - an instance of a django model
-    - a field on an instance of a django model
-    - a bool
-    - an integer
-    - a string
+- An owner which must be an instance of a django model
+- A key, which must be an instance of keyvalue.models.Key and stores the name of the key part of the key value.
+- A value, which must be one of:
+  - an instance of a django model
+  - a field on an instance of a django model
+  - a bool
+  - an integer
+  - a string
 
+```
    Note: When a bool, integer or string is supplied as a value
    we store it in supplied keyvalue value django model.
    But to the user it appears as it's original format.
    You can set what type of container is used for storing the string values.
    Supplied containers are: ValueText, ValueChar100, ValueChar50
+```
 
 NOTE: This application is still being worked on.
 Speed wise you are always better explicitly specifying your fields and relationships on your models using django fields.
