@@ -25,7 +25,7 @@ class KeyValueManager(models.Manager):
         Test if a given owner has an instance of
         keyvalue for all the names provided
         """
-        qs = self.get_query_set()
+        qs = self.get_queryset()
         owner_type = ContentType.objects.get_for_model(owner)
         return len(names) == qs.filter(owner_content_type=owner_type,
                                        owner_object_id=owner.id,
@@ -50,7 +50,7 @@ class KeyValueManager(models.Manager):
                        'owner_object_id': owner.id}
         if not names == None:
             filter_args['key__name__in'] = names
-        return self.get_query_set().filter(**filter_args)
+        return self.get_queryset().filter(**filter_args)
 
     def set_keyvalue(self, owner, name, value,
                      field=None, cascade_on_delete=None):
@@ -85,7 +85,7 @@ class KeyValueManager(models.Manager):
             kwargs['value_content_object_field'] = field
         if not cascade_on_delete == None:
             kwargs['cascade_on_delete'] = cascade_on_delete
-        # return self.get_query_set().get_or_create(**kwargs)[1]
+        # return self.get_queryset().get_or_create(**kwargs)[1]
         return self.get_or_create(**kwargs)[0]
 
     def set_keyvalues(self, owner, keyvalues,
@@ -111,7 +111,7 @@ class KeyValueManager(models.Manager):
             names = self.get_keyvalues(owner).values_list('key__name',
                                                           flat=True)
         owner_type = ContentType.objects.get_for_model(owner)
-        qs = self.get_query_set()
+        qs = self.get_queryset()
         qs.filter(owner_content_type=owner_type,
                   owner_object_id=owner.id,
                   key__name__in=names).delete()
